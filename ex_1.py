@@ -1,9 +1,17 @@
-# Найдите сумму цифр трехзначного числа
+# Монетки
 
-number = int(input("Введите трехзначное число: "))
-first_number = number
-sum = 0
-while number != 0:
-    sum += number % 10
-    number //= 10
-print(f"Сумма цифр числа {first_number}: {sum}")
+n = int(input('Введите колличетсво монет'))
+
+orel = 0
+reshka = 0
+
+for i in range(n):
+    x = int(input())
+    if x == 1:
+        orel += 1
+    else:
+        reshka += 1
+if orel >= reshka:
+    print(f"Нужно перевернуть {reshka} монет")
+else:
+    print(f"Нужно перевернуть {orel} монет")
