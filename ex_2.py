@@ -1,25 +1,27 @@
-# Найти самый близкий элемент
+def find_max_berries(berries):
+    n = len(berries)
+    max_berries = 0
 
-import random
+    for i in range(n):
+        # Вычисление суммы ягод на текущем кусте и его соседних кустах
+        current_berries = berries[i] + \
+            berries[(i + 1) % n] + berries[(i - 1) % n]
+        max_berries = max(max_berries, current_berries)
 
-n = int(input('Введите размер массива\n'))
-m = int(input('Введите число для обозначения максимально возможного значения элемента массива\n'))
-x = int(input('Введите число для поиска ближайшего к нему\n'))
-y = m
-num = 0
-pos = 0
-s = []
+    return max_berries
 
+
+# Получение ввода от пользователя
+n = int(input("Введите количество кустов на грядке: "))
+
+berries = []
 for i in range(n):
-    s.append(random.randint(1, m))
-print(s)
+    berry_count = int(input(
+        "Введите количество ягод на кусте {}: ".format(i + 1)))
+    berries.append(berry_count)
 
-for i in range(len(s) - 1):
-    if abs(x - s[i]) < y:
-        y = abs(x - s[i])
-        num = s[i]
-        pos = i
-        print(num, pos)
+# Вызов функции для решения задачи
+result = find_max_berries(berries)
 
-print(
-    f'Самое близкое число к числу {x} является {num} находится на {pos + 1} позиции в массиве')
+# Вывод результата
+print("Максимальное количество ягод, которое может собрать собирающий модуль:", result)

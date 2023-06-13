@@ -1,18 +1,21 @@
-# Сколько раз встерчается число
-import random
+set1 = set()
+set2 = set()
 
-n = int(input('Введите размер массива'))
-m = int(input('Введите число для обозначения максимально возможного значения элемента массива'))
-x = int(input('Введите число для поиска'))
-count = 0
-s = []
+n = int(input("Введите количество элементов первого множества: "))
+m = int(input("Введите количество элементов второго множества: "))
 
+print("Введите элементы первого множества:")
 for i in range(n):
-    s.append(random.randint(1, m))
-print(s)
+    element = int(input())
+    set1.add(element)
 
-for i in s:
-    if i == x:
-        count += 1
-print(
-    f'число {x} встречается в массиве {count} раз')
+print("Введите элементы второго множества:")
+for i in range(m):
+    element = int(input())
+    set2.add(element)
+
+common = set1.intersection(set2)
+
+print("Общие элементы, встречающиеся в обоих множествах (в порядке возрастания):")
+for element in sorted(common):
+    print(element)
