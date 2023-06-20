@@ -1,16 +1,9 @@
-def find_indices_in_range(lst, minimum, maximum):
-    indices = []
+def print_operation_table(operation, num_rows=6, num_columns=6):
+    for row in range(1, num_rows + 1):
+        for col in range(1, num_columns + 1):
+            result = operation(row, col)
+            print(result, end=" ")
+        print()
 
-    for i, element in enumerate(lst):
-        if minimum <= element <= maximum:
-            indices.append(i)
 
-    return indices
-
-# Пример использования
-my_list = [1, 5, 3, 8, 2, 7, 6, 4, 9]
-min_value = 3
-max_value = 7
-
-result = find_indices_in_range(my_list, min_value, max_value)
-print("Индексы элементов в заданном диапазоне:", result)
+print_operation_table(lambda x, y: x * y)
