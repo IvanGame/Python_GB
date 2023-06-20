@@ -1,9 +1,17 @@
-def stepen(a, b):
-    if (b == 0):
-        return 1
-    return a * stepen(a, b - 1)
+def fill_arithmetic_progression():
+    a1 = int(
+        input("Введите первый элемент прогрессии: "))
+    d = int(input("Введите разность прогрессии: "))
+    n = int(input("Введите количество элементов: "))
+
+    progression = []
+
+    for i in range(n):
+        element = a1 + i * d
+        progression.append(element)
+
+    return progression
 
 
-a = int(input("Введите первое число:"))
-b = int(input("Введите второе число:"))
-print(stepen(a, b))
+result = fill_arithmetic_progression()
+print("Арифметическая прогрессия:", result)
